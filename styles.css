@@ -1,0 +1,136 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Keyframes defines the start and endpoints for my transformation */
+
+@keyframes slidein {
+    from {
+      text-shadow: 0 0 20px #f518be;
+    }
+    to {
+      text-shadow: 0 0 30px #f553e2, 0 0 10px #f87bff;
+    }
+
+	60% { transform: translateX(-45%); }
+	75% { transform: translateX(-52%); }
+	100% { opacity: 1; transform: translateX(-50%);}
+  }
+
+/* by setting my width to min I am making it responsive */
+h1 {
+    width: min(90%, 900px);
+    margin-left: 50%;
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    font-family: 'Teko', sans-serif;
+    font-size: 5rem;
+    text-transform: uppercase;
+    transform: translateX(-200%);
+    animation: slidein 1.5s ease-out forwards;
+    color: #333;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:1;}
+}
+
+h2 {
+    width: min(100%, 900px);
+    animation: showup 7s ease-in;
+    color: #fa72ff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: min(90%, 900px);
+}
+
+.card {
+    text-align: center;
+    position:relative;
+    margin: 10px;
+    width: 250px;
+    height: 320px;
+    border: solid 3px;
+    border-radius: 10%;
+    border-color:#f87bff;
+}
+
+/* Preserve-3d makes the card flip to the card-back or it would only flip the card-front */
+.card-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 500ms ease;
+    font-family: 'Teko', sans-serif;
+}
+
+/* While card is active it flips, when it is let go it flips back */
+.card-content:active {
+    transform: rotateY(188deg);
+}
+
+.card-front,
+.card-back {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    color: #333;
+}
+
+.card-front {
+    cursor: pointer;
+}
+
+/* here the rotation is happening */
+.card-back {
+    transform: rotateY(188deg);
+    padding-top: 50%;
+    font-size: 20px;
+}
+
+h3 {
+    padding: 50px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.card-subtitle {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 500;
+    line-height: 35px;
+    font-size: 24px;
+}
+
+/* my image spins in a circle on hover for 7s and then back faster */
+img {
+    width: min(320px, 900px);
+    padding: 50px;
+    transition: 7s, 1s;
+}
+
+img:hover {
+    transform:rotate(1360deg);
+    transition: 7s;
+}
