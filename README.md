@@ -8,4 +8,4 @@ I use @keyframes for my h1 and h2 to determine the time it starts and ends.
 
 I played around with different transition speed and transform degrees. 
 
-Hope you enjoy! :)
+### Hope you enjoy! :)
